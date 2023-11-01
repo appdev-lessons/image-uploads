@@ -14,11 +14,16 @@ gem "cloudinary"
 
 and then run `bundle install` in the terminal.
 
-In the file `config/environment.rb`, add this line to the end:
+In the file `config/environment.rb`, add these require statments:
 
-```ruby
+```ruby{3-4}
+# Load the Rails application.
+require_relative "application"
 require "carrierwave"
 require "carrierwave/orm/activerecord"
+
+# Initialize the Rails application.
+Rails.application.initialize!
 ```
 
 ## Getting started with Carrierwave
@@ -147,7 +152,7 @@ end
 ### Retrieve Cloudinary API info
 
 Next, you'll need to [sign up for a Cloudinary
-account](https://cloudinary.com/users/register/free). and get
+account](https://cloudinary.com/users/register/free) and get
 your API info. You can find your cloud name by going to Settings and clicking
 the Account tab. You can find your API key and secret by going to Settings and
 clicking the Security tab.
@@ -158,7 +163,7 @@ For security, it's best to store your keys in environment variables. Read more
 on the how and why this is important in the guide on [storing your credentials
 securely](https://learn.firstdraft.com/lessons/52-storing-credentials-securely).
 
-Depending on what service you are hosting your app on, you will need to manually add the environment variables to your production app. For instance, [here's how to do so on Fly](https://fly.io/docs/rails/the-basics/configuration/).
+Depending on what service you are hosting your deployed app on (if you choose to deploy it), you will need to manually add the environment variables to your production app. For instance, [here's how to do so on Render](https://render.com/docs/configure-environment-variables#configuring-secrets-and-other-environment-information-on-render).
 
 ### Store Cloudinairy API info in an initializer
 
