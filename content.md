@@ -58,7 +58,7 @@ rails generate uploader Avatar
 In your case, change `Avatar` to match whatever you are trying to upload / the
 column you added to the table: Song, Transcript, Image, etc.
 
-**Restart your `bin/dev`.**
+**Restart your live application preview.**
 
 ### Mount the uploader in the model
 
